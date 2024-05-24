@@ -1,32 +1,26 @@
-import { initPopup, BrowserNavigator } from "@tma.js/sdk";
-import { Button } from "@nextui-org/react";
+import { useIntegration } from "@tma.js/react-router-integration";
+import { initNavigator } from "@tma.js/sdk-react";
+import { useEffect, useMemo } from "react";
+import { Navigate, Route, Router, Routes } from "react-router-dom";
+import BackendPage from "./BackendPage";
+import FrontendPage from "./FrontendPage";
 
-const popup = initPopup();
-const navigator = new BrowserNavigator(["/"], 0,
-  {
-    hashMode: "slash"
-  }
-);
-navigator.attach();
+export default function App() {
+  const navigator = useMemo(() => initNavigator("app-navigation-state"), []);
+  const [location, reactNavigator] = useIntegration(navigator);
 
-function App() {
+  useEffect(() => {
+    navigator.attach();
+    return () => navigator.detach();
+  }, [navigator]);
+
   return (
-    <>
-      <Button onClick={() => {
-        popup.open({
-          title: "Hi",
-          message: "Hello world!",
-          buttons: [{ id: "ok", type: "close" }]
-        }).then(res => console.log(res));
-      }}>Home</Button>
-      <Button onClick={() => {
-        navigator.push("frontend");
-      }}>Home</Button>
-      <Button onClick={() => {
-        navigator.push("backend");
-      }}>Home</Button>
-    </>
-  )
+    <Router location={location} navigator={reactNavigator}>
+      <Routes>
+        <Route path={"/backend"} element={<BackendPage />} />
+        <Route path={"/frontend"} element={<FrontendPage />} />
+        <Route path={"*"} element={<Navigate to={"/"} />} />
+      </Routes>
+    </Router>
+  );
 }
-
-export default App
