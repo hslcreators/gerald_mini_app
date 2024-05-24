@@ -1,7 +1,7 @@
 import { useIntegration } from "@tma.js/react-router-integration";
 import { initNavigator } from "@tma.js/sdk-react";
 import { useEffect, useMemo } from "react";
-import { Navigate, Route, Router, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import BackendPage from "./BackendPage";
 import FrontendPage from "./FrontendPage";
 
