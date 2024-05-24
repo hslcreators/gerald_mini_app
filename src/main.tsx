@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from './App.tsx'
 import FrontendPage from './FrontendPage.tsx';
+import BackendPage from './BackendPage.tsx';
 import './index.css'
 
 
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
   {
     path: "/frontend",
     Component: FrontendPage
+  },
+  {
+    path: "/backend",
+    Component: BackendPage
   }
 ]);
 

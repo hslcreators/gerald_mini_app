@@ -6,7 +6,7 @@ const navigator = createBrowserNavigatorFromLocation({
 });
 navigator.attach();
 
-export default function FrontendPage() {
+export default function BackendPage() {
 	return (
 		<>
 			<Input

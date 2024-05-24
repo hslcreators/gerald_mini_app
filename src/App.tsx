@@ -19,7 +19,12 @@ function App() {
           message: "Hello world!",
           buttons: [{ id: "ok", type: "close" }]
         }).then(res => console.log(res));
+      }}>Home</Button>
+      <Button onClick={() => {
         navigator.push("frontend");
+      }}>Home</Button>
+      <Button onClick={() => {
+        navigator.push("backend");
       }}>Home</Button>
     </>
   )
