@@ -1,6 +1,5 @@
 import { initPopup, BrowserNavigator } from "@tma.js/sdk";
 import { Button } from "@nextui-org/react";
-import './App.css'
 
 const popup = initPopup();
 const navigator = new BrowserNavigator(["/"], 0,
