@@ -19,7 +19,7 @@ export default function App() {
       <Routes>
         <Route path={"/backend"} element={<BackendPage />} />
         <Route path={"/frontend"} element={<FrontendPage />} />
-        <Route path={"*"} element={<Navigate to={"/"} />} />
+        {/* <Route path={"*"} element={<Navigate to={"/"} />} /> */}
       </Routes>
     </Router>
   );
